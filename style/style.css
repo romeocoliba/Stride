@@ -33,12 +33,21 @@ nav {
     display: flex;
 }
 
+.center {
+    margin-left: 25vw;
+    margin-right: 25vw;
+}
+
 .pages>li {
     margin: 10px;
 }
 
 .right {
     display: flex;
+}
+
+.right>a {
+    margin: 5px;
 }
 
 
