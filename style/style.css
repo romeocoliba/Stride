@@ -17,7 +17,29 @@ ul {
 
 nav {
     display: flex;
+    position: fixed;
+    width: 100%;
     background-color: #333333;
     height: 80px;
+    justify-content: center;
+    align-items: center;
 }
+
+.navLogo {
+    height: 40px;
+}
+
+.pages {
+    display: flex;
+}
+
+.pages>li {
+    margin: 10px;
+}
+
+.right {
+    display: flex;
+}
+
+
 
