@@ -22,12 +22,19 @@ ul {
 nav {
     display: flex;
     position: fixed;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     background-color: #333333;
     height: 80px;
-    justify-content: center;
-    align-items: center;
+    
     z-index: 99;
+}
+
+.navContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
 }
 
 .navLogo  {
@@ -38,16 +45,15 @@ nav {
     display: flex;
 }
 
-.center {
+/* .center {
     margin-left: 25vw;
     margin-right: 25vw;
-}
+} */
 
 .pages>li {
     margin: 10px;
 }
-
-nav>.right {
+.navContainer>.right {
     display: flex;
 }
 
