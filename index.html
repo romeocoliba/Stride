@@ -12,17 +12,9 @@
 <body>
     
     <nav>
-        <div class="navContainer">
+    <div class="navContainer">
         <div class="left">
             <a href="index.html"><img src="style/img/light-logo.svg" alt="Stride LOGO" class="navLogo"></a>
-        </div>
-
-        <div class="burger-menu">
-            <a href="">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-            </a>
         </div>
 
         <div class="center">
@@ -38,8 +30,24 @@
             <a href="RO/index.html"><h3>RO</h3></a>
             <a href="resources/open/login.html"><i class="fa-regular fa-user" style="color: #ECF6FF;"></i></a>
         </div>
+        <div class="burger-menu" onclick="dropdown()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
     </div>
     </nav>
+
+    <div class="drop-down inactive" id="drop-down">
+            <ul class="drop-down-links">
+                <li><a href="resources/open/products.html">Products</a></li>
+                <li><a href="resources/open/aboutUs.html">About us</a></li>
+                <li><a href="resources/open/blog.html">Blog</a></li>
+                <li><a href="resources/open/contacts.html">Contacts</a></li>
+                <li><a href="RO/index.html"><h3>RO</h3></a></li>
+                <li><a href="resources/open/login.html"><i class="fa-regular fa-user" style="color: #ECF6FF;"></i></a></li>
+            </ul>
+    </div>
 
     <section class="ghost"></section>
 
@@ -70,9 +78,9 @@
             </div>
             <div class="right">
                 <div class="socials">
-                    <a href=""><i class="fa-brands fa-facebook fa-xl"style="color: #ECF6FF;"></i></a>
-                    <a href=""><i class="fa-brands fa-instagram fa-xl"style="color: #ECF6FF;"></i></a>
-                    <a href=""><i class="fa-brands fa-youtube fa-xl"style="color: #ECF6FF;"></i></a>
+                    <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook fa-xl"style="color: #ECF6FF;"></i></a>
+                    <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram fa-xl"style="color: #ECF6FF;"></i></a>
+                    <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube fa-xl"style="color: #ECF6FF;"></i></a>
                 </div>
                 <div class="copyright">
                     <p>@2023 - stride. All rights reserved</p>
@@ -83,5 +91,7 @@
             <p class="romeo">Created by Romeo.</p>
         </div>
     </footer>
+
+    <script src="resources/js/responive.js"></script>
 </body>
 </html>

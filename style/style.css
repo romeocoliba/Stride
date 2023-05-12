@@ -27,7 +27,7 @@ nav {
     width: 100%;
     background-color: #333333;
     height: 80px;
-    z-index: 99;
+    z-index: 90;
 }
 
 .navContainer {
@@ -122,14 +122,45 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .line {
     height: 3px;
     width: 25px;
     background-color: #ECF6FF;
-    margin: 4px;
+    margin: 3px;
     border-radius: 3px;
+}
+
+.drop-down {
+    position: fixed;
+    background-color: #333333;
+    padding-top: 80px;
+    right: 0;
+    width: 40vw;
+    height: 60vw;
+    border-radius: 3px;
+}
+
+.drop-down-links>li {
+    padding-top: 5vw;
+}
+
+.drop-down-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.active {
+    display: block;
+}
+
+.inactive {
+    display: none;
 }
 
 @media screen and (max-width: 600px) {
@@ -146,6 +177,9 @@ footer {
     }
 
 
+    /* .drop-down {
+        display: block;
+    } */
 
 
 
