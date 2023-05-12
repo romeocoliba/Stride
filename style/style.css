@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&display=swap');
 
+@font-face {
+    font-family: ndot32;
+    src: url(fonts/ndot-47.ttf);
+}
 * {
     margin: 0;
     padding: 0;
@@ -23,9 +27,10 @@ nav {
     height: 80px;
     justify-content: center;
     align-items: center;
+    z-index: 99;
 }
 
-.navLogo {
+.navLogo  {
     height: 40px;
 }
 
@@ -42,7 +47,7 @@ nav {
     margin: 10px;
 }
 
-.right {
+nav>.right {
     display: flex;
 }
 
@@ -50,5 +55,72 @@ nav {
     margin: 5px;
 }
 
+footer {
+    background-color: #3F3F3F;
+}
+
+.footerLogo  {
+    height: 40px;
+}
+
+.links {
+    height: 150px;
+    width: 80vw;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.links>.left {
+    display: flex;
+
+}
+
+.links>.right {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.label {
+    background-color: #333333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    z-index: 2;
+}
+
+.romeo {
+    color: #ECF6FF; 
+    font-family: ndot32;
+    letter-spacing: 1.4px;
+}
+
+.left>.column {
+    margin-left: 20px;
+}
 
 
+.copyright>p {
+    color: #ECF6FF;
+}
+
+.socials {
+    padding-bottom: 10px;
+}
+
+.socials>a {
+    margin-left: 10px;
+}
+
+
+
+
+
+.ghost {
+    height: 900px;
+}
