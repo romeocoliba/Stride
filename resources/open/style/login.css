@@ -10,7 +10,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 73.70vh;
+    height: -moz-calc(100vh - (150px + 50px));
+    height: -webkit-calc(100vh - (150px + 50px));
+    height: calc(100vh - (150px + 50px));
   }
   
   /* Style the login container */
@@ -81,3 +83,11 @@
     padding-top: 10px;
     color: #333333;
   }
+
+  @media screen and (max-width: 600px) {
+    .login {
+    height: -moz-calc(100vh - (100px + 26px));
+    height: -webkit-calc(100vh - (100px + 26px));
+    height: calc(100vh - (100px + 26px));
+    }
+}
