@@ -31,7 +31,7 @@ section {
   }
 
   .contacts {
-      width: 30vw;
+      width: 30vw;    
       padding: 3vh;
   }
 
@@ -47,13 +47,21 @@ section {
       height: calc(100vh - (100px + 26px + 40px));
       display: block;
       }
+
+      .drop-down {
+            height: auto;
+      }
+
+      .drop-down-links {
+            padding-bottom: 15px;
+      }
       
       .google-column {
             padding-top: 15vh;
       }
 
       .contacts {
-            width: 80vw;
+            width: 60vw;
             padding-top: 3vh;
         }
 
