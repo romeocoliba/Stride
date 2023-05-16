@@ -138,8 +138,8 @@ footer {
     background-color: #333333;
     padding-top: 80px;
     right: 0;
-    width: 40vw;
-    height: 70vw;
+    width: 150px;
+    height: 50vh;
     border-radius: 3px;
 }
 
@@ -150,8 +150,9 @@ footer {
 .drop-down-links {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    height: 35vh;
 }
 
 
@@ -175,14 +176,6 @@ footer {
     .navContainer>.right {
         display: none;
     }
-
-
-    /* .drop-down {
-        display: block;
-    } */
-
-
-
 
     .links>.left {
         display: none;
