@@ -20,6 +20,10 @@ document.getElementById("registerButton").addEventListener("click", function(){
 
                 window.localStorage.setItem("users",JSON.stringify(users));
 
+                alert("Register succesful!");
+
+                window.location.href = 'login.html';
+
 
                 }  else {
 
@@ -28,6 +32,10 @@ document.getElementById("registerButton").addEventListener("click", function(){
                     localUsers.push(newUser);
 
                     window.localStorage.setItem("users",JSON.stringify(localUsers));
+
+                    alert("Register succesful!");
+
+                    window.location.href = 'login.html';
                 }
 
             } else {
