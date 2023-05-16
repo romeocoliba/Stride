@@ -52,7 +52,7 @@
   /* Style the login button */
   .loginButton {
     padding: 10px;
-    background-color: #007bff;
+    background-color: #3e3e3e;
     color: #fff;
     text-align: center;
     border-radius: 4px;
@@ -60,12 +60,12 @@
   }
   
   .loginButton:hover {
-    background-color: #0056b3;
+    background-color: #333333;
   }
 
   .registerButton {
     padding: 10px;
-    background-color: #007bff;
+    background-color: #3e3e3e;
     color: #fff;
     text-align: center;
     border-radius: 4px;
@@ -73,7 +73,7 @@
   }
   
   .registerButton:hover {
-    background-color: #0056b3;
+    background-color: #333333;
   }
   
 
