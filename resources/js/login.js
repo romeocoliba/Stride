@@ -1,15 +1,4 @@
 
-const loginDB = [
-    {
-        login: "admin",
-        password: "admin"
-    },
-    {
-        login: "jenea",
-        password: "chiripic"
-    }
-]
-
 
 document.getElementById("loginButton").addEventListener("click", function(){
 
@@ -17,23 +6,58 @@ document.getElementById("loginButton").addEventListener("click", function(){
     let password = document.getElementById("password").value;
 
 
-    for (let index = 0; index < loginDB.length; index++) {
 
-        if (loginDB[index].login === login) {
+    if(window.localStorage.getItem("users") == null){
+
+    for (let index = 0; index < users.length; index++) {
+
+        if (users[index].login === login) {
             
-            if (loginDB[index].password === password) {
+            if (users[index].password === password) {
                 alert("LOGIN SUCCESFUL");
                 window.location.href = '../admin/index.html';
+                break;
             }
 
-            break;
             alert("Wrong password");
-            
+            break;
 
         } else {
 
-            alert("Wrong login");
+            if (index == users.length-1) {
+                alert("Wrong login");
+            }
+            
         }
 
-    }
+        }
+            } else {
+
+                var localUsers = JSON.parse(window.localStorage.getItem("users"));
+
+
+                for (let index = 0; index < localUsers.length; index++) {
+
+                    if (localUsers[index].login === login) {
+                        
+                        if (localUsers[index].password === password) {
+                            alert("LOGIN SUCCESFUL");
+                            window.location.href = '../admin/index.html';
+                            break;
+                        }
+            
+                        alert("Wrong password");
+                        break;
+            
+                    } else {
+            
+                        if (index == localUsers.length-1) {
+                            alert("Wrong login");
+                        }
+                        
+                    }
+            
+                    }
+
+            }
   });
