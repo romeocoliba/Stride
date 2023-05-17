@@ -75,7 +75,7 @@
 
             <div class="info">
                 <p>Get to know our story, values, and commitment to delivering excellence in footwear. Learn about our passion for craftsmanship, sustainable practices, and dedication to customer satisfaction. Find out why <span>STRIDE</span> is your go-to destination for finding the perfect pair of shoes.</p>
-                <a href=""><div class="button">About Us</div></a>   
+                <a href="resources/open/aboutUs.html"><div  class="button">About Us</div></a>   
             </div>
 
             <div class="image">
@@ -89,8 +89,8 @@
         <div class="container">
 
             <div class="info">
-                <p>Browse our extensive collection of shoes, carefully curated to meet your diverse preferences. We offer a wide range of styles, sizes, and designs, ensuring that you'll find the ideal pair to complement your individuality. From sneakers and sandals to heels and boots, we have something to match every taste and occasion.</p>
-                <a href=""><div class="button">Products</div></a>   
+                <p>Browse our extensive collection of shoes, carefully curated to meet your diverse preferences. We offer a wide range of styles, sizes, and designs, ensuring that you'll find the ideal pair to complement your individuality.</p>
+                <a href="resources/open/products.html"><div class="button">Products</div></a>   
             </div>
 
             <div class="image">
@@ -105,7 +105,7 @@
 
             <div class="info">
                 <p>Stay up to date with the latest shoe trends, fashion tips, and style inspiration through our engaging blog. Our team of experts shares valuable insights, guides, and articles to help you make informed decisions about your footwear choices. Discover the hottest shoe styles, care tips, and more on our blog.</p>
-                <a href=""><div class="button">Blog</div></a>   
+                <a href="resources/open/blog.html"><div class="button">Blog</div></a>   
             </div>
 
             <div class="image">
@@ -120,7 +120,7 @@
 
             <div class="info">
                 <p>Have any questions, feedback, or concerns? Our dedicated customer support team is here to assist you. Feel free to reach out to us through phone, email, or by filling out our online contact form. We value your input and strive to provide the best possible service.</p>
-                <a href=""><div class="button">Contacts</div></a>   
+                <a href="resources/open/contacts.html"><div class="button">Contacts</div></a>   
             </div>
 
             <div class="image">
@@ -130,6 +130,7 @@
     </section>
 
     <style>
+
         .white {
             width: 100%;
             height: 400px;
@@ -138,6 +139,8 @@
             justify-content: start;
             align-items: center;
             filter:drop-shadow(0px 4px 4px #2d2d2d);
+            position: relative;
+            z-index: -3;
         }
 
         .white>.container {
@@ -156,6 +159,8 @@
             justify-content: end;
             align-items: center;
             filter:drop-shadow(0px 4px 4px #2d2d2d);
+            position: relative;
+            z-index: -3;
         }
 
         .black>.container {
@@ -210,6 +215,66 @@
             width: 500px;
             height: 400px;
             object-fit: cover;
+        }
+
+        @media screen and (max-width: 600px) {
+
+        .black {
+            width: 100%;
+            height: 70vh;
+            justify-content: center;
+        }
+
+
+        .black>.container>.info>p {
+            font-size: 16px;
+        }
+
+        .black>.container {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .white {
+            width: 100%;
+            height: 70vh;
+            justify-content: center;
+        }
+
+        .white>.container {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .white>.container>.info>p {
+            font-size: 16px;
+        }
+
+        
+        .info {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .image {
+            height: 300px;
+            padding-top: 10px;
+        }
+
+        .image>img {
+            width: 90vw;
+            height: 300px;
+            object-fit: cover;
+        }
         }
 
         
