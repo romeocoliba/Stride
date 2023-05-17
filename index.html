@@ -6,11 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/200fead19d.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/x-icon" href="style/img/favicon.svg">
+    <link rel="stylesheet" href="style/index.css">
+    <link rel="stylesheet" href="style/loader.css">
     <link rel="stylesheet" href="style/responsive.css">
     <link rel="stylesheet" href="style/carousel.css">
     <title>Stride</title>
 </head>
 <body>
+
+    <div class="loader">
+        <img src="style/img/light-logo.svg" alt="Stride LOGO" class="loaderLogo">
+    </div>
     
     <nav>
     <div class="navContainer">
@@ -75,7 +81,7 @@
 
             <div class="info">
                 <p>Get to know our story, values, and commitment to delivering excellence in footwear. Learn about our passion for craftsmanship, sustainable practices, and dedication to customer satisfaction. Find out why <span>STRIDE</span> is your go-to destination for finding the perfect pair of shoes.</p>
-                <a href="resources/open/aboutUs.html"><div  class="button">About Us</div></a>   
+                <a href="resources/open/aboutUs.html"><div class="button">About us</div></a>  
             </div>
 
             <div class="image">
@@ -128,159 +134,6 @@
             </div>
         </div>
     </section>
-
-    <style>
-
-        .white {
-            width: 100%;
-            height: 400px;
-            background-color: #ECF6FF;
-            display: flex;
-            justify-content: start;
-            align-items: center;
-            filter:drop-shadow(0px 4px 4px #2d2d2d);
-            position: relative;
-            z-index: -3;
-        }
-
-        .white>.container {
-            width: 85%;
-            display: flex;
-            flex-direction: row-reverse;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .black {
-            width: 100%;
-            height: 400px;
-            background-color: #3F3F3F;
-            display: flex;
-            justify-content: end;
-            align-items: center;
-            filter:drop-shadow(0px 4px 4px #2d2d2d);
-            position: relative;
-            z-index: -3;
-        }
-
-        .black>.container {
-            width: 85%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .black>.container>.info>p {
-            color: #ECF6FF;
-            font-size: 20px;
-            font-weight: 300;
-        }
-
-        .white>.container>.info>p {
-            color: #3F3F3F;
-            font-size: 20px;
-            font-weight: 400;
-        }
-
-        .info>p>span {
-            color: #FF5C00;
-            font-weight: 600;
-        }
-
-        .info>a>.button {
-            background-color: #FF5C00;
-            padding: 10px;
-            width: 100px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 15px;
-            margin-top: 10px;
-        }
-
-        .info>a>.button {
-            font-family: ndot32;
-            letter-spacing: 1.2px;
-        }
-
-        .info {
-            width: 45%;
-        }
-
-        .image {
-            height: 400px;
-        }
-
-        .image>img {
-            width: 500px;
-            height: 400px;
-            object-fit: cover;
-        }
-
-        @media screen and (max-width: 600px) {
-
-        .black {
-            width: 100%;
-            height: 70vh;
-            justify-content: center;
-        }
-
-
-        .black>.container>.info>p {
-            font-size: 16px;
-        }
-
-        .black>.container {
-            width: 80%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .white {
-            width: 100%;
-            height: 70vh;
-            justify-content: center;
-        }
-
-        .white>.container {
-            width: 80%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .white>.container>.info>p {
-            font-size: 16px;
-        }
-
-        
-        .info {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .image {
-            height: 300px;
-            padding-top: 10px;
-        }
-
-        .image>img {
-            width: 90vw;
-            height: 300px;
-            object-fit: cover;
-        }
-        }
-
-        
-
-    </style>
-
 
 
     <footer>

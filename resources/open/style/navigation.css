@@ -135,6 +135,7 @@ footer {
 
 .drop-down {
     position: fixed;
+    z-index: 20;
     background-color: #333333;
     padding-top: 80px;
     right: 0;
@@ -153,6 +154,7 @@ footer {
     justify-content: space-evenly;
     align-items: center;
     height: 35vh;
+    
 }
 
 

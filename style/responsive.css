@@ -138,6 +138,7 @@ footer {
     position: fixed;
     background-color: #333333;
     padding-top: 80px;
+    z-index: 20;
     right: 0;
     width: 40vw;
     height: 70vw;
