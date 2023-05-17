@@ -26,7 +26,7 @@ section {
   }
 
   .google-maps {
-      height: 40vh;
+      height: 50vh;
       width: 50vw;
   }
 
@@ -42,9 +42,9 @@ section {
   
   @media screen and (max-width: 600px) {
       .container {
-      height: -moz-calc(100vh - (100px + 26px + 40px));
-      height: -webkit-calc(100vh - (100px + 26px + 40px));
-      height: calc(100vh - (100px + 26px + 40px));
+      height: -moz-calc(100vh - (100px + 26px));
+      height: -webkit-calc(100vh - (100px + 26px));
+      height: calc(100vh - (100px + 26px));
       display: block;
       }
 

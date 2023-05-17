@@ -55,24 +55,166 @@
         <div class="slideshow-container">
 
             <div class="mySlides fade">
-              <img src="style/img/carousel_1.jpg">
+              <img src="style/img/carousel_1.webp">
             </div>
             
             <div class="mySlides fade">
-              <img src="style/img/carousel_2.jpg">
+              <img src="style/img/carousel_2.webp">
             </div>
             
             <div class="mySlides fade">
-              <img src="style/img/carousel_3.jpg">
+              <img src="style/img/carousel_3.webp">
             </div>
             
             </div>
     </section>
 
-    <section>
+    <section class="black">
+
+        <div class="container">
+
+            <div class="info">
+                <p>Get to know our story, values, and commitment to delivering excellence in footwear. Learn about our passion for craftsmanship, sustainable practices, and dedication to customer satisfaction. Find out why <span>STRIDE</span> is your go-to destination for finding the perfect pair of shoes.</p>
+                <a href=""><div class="button">About Us</div></a>   
+            </div>
+
+            <div class="image">
+                <img src="style/img/homepage_1.webp" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="white">
+
+        <div class="container">
+
+            <div class="info">
+                <p>Browse our extensive collection of shoes, carefully curated to meet your diverse preferences. We offer a wide range of styles, sizes, and designs, ensuring that you'll find the ideal pair to complement your individuality. From sneakers and sandals to heels and boots, we have something to match every taste and occasion.</p>
+                <a href=""><div class="button">Products</div></a>   
+            </div>
+
+            <div class="image">
+                <img src="style/img/homepage_2.webp" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="black">
+
+        <div class="container">
+
+            <div class="info">
+                <p>Stay up to date with the latest shoe trends, fashion tips, and style inspiration through our engaging blog. Our team of experts shares valuable insights, guides, and articles to help you make informed decisions about your footwear choices. Discover the hottest shoe styles, care tips, and more on our blog.</p>
+                <a href=""><div class="button">Blog</div></a>   
+            </div>
+
+            <div class="image">
+                <img src="style/img/homepage_3.webp" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="white">
+
+        <div class="container">
+
+            <div class="info">
+                <p>Have any questions, feedback, or concerns? Our dedicated customer support team is here to assist you. Feel free to reach out to us through phone, email, or by filling out our online contact form. We value your input and strive to provide the best possible service.</p>
+                <a href=""><div class="button">Contacts</div></a>   
+            </div>
+
+            <div class="image">
+                <img src="style/img/homepage_4.webp" alt="">
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .white {
+            width: 100%;
+            height: 400px;
+            background-color: #ECF6FF;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            filter:drop-shadow(0px 4px 4px #2d2d2d);
+        }
+
+        .white>.container {
+            width: 85%;
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .black {
+            width: 100%;
+            height: 400px;
+            background-color: #3F3F3F;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            filter:drop-shadow(0px 4px 4px #2d2d2d);
+        }
+
+        .black>.container {
+            width: 85%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .black>.container>.info>p {
+            color: #ECF6FF;
+            font-size: 20px;
+            font-weight: 300;
+        }
+
+        .white>.container>.info>p {
+            color: #3F3F3F;
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        .info>p>span {
+            color: #FF5C00;
+            font-weight: 600;
+        }
+
+        .info>a>.button {
+            background-color: #FF5C00;
+            padding: 10px;
+            width: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+            margin-top: 10px;
+        }
+
+        .info>a>.button {
+            font-family: ndot32;
+            letter-spacing: 1.2px;
+        }
+
+        .info {
+            width: 45%;
+        }
+
+        .image {
+            height: 400px;
+        }
+
+        .image>img {
+            width: 500px;
+            height: 400px;
+            object-fit: cover;
+        }
+
         
-    </section>
 
+    </style>
 
 
 

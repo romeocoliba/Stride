@@ -86,8 +86,8 @@
 
   @media screen and (max-width: 600px) {
     .login {
-    height: -moz-calc(100vh - (100px + 26px + 40px));
-    height: -webkit-calc(100vh - (100px + 26px + 40px));
-    height: calc(100vh - (100px + 26px + 40px));
+    height: -moz-calc(100vh - (100px + 26px));
+    height: -webkit-calc(100vh - (100px + 26px));
+    height: calc(100vh - (100px + 26px));
     }
 }
