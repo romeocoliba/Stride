@@ -8,6 +8,8 @@ section {
       display: flex;
       justify-content: center;
       align-items: center;
+      background-color: #3F3F3F;
+      filter:drop-shadow(0px 4px 4px #2d2d2d);
 }
 
 .container {
@@ -26,26 +28,56 @@ section {
   }
 
   .google-maps {
-      height: 50vh;
+      height: 60vh;
       width: 50vw;
   }
 
   .contacts {
       width: 30vw;    
-      padding: 3vh;
+      padding: 6vh;
+  }
+
+  .contacts>div>p {
+      color: #ECF6FF;
   }
 
   .contacts>div {
       margin-top: 10px;
   }
 
+  .hero-text {
+      background-color: #ECF6FF;
+      padding-top: 80px;
+      height: 35vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .hero-text>.container {
+      padding: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .hero-text>.container>h1 {
+      font-size: 64px;
+  }
+
+  .hero-text>.container>h3 {
+      font-weight: 400;
+  }
+
   
   @media screen and (max-width: 600px) {
       .container {
-      height: -moz-calc(100vh - (100px + 26px));
-      height: -webkit-calc(100vh - (100px + 26px));
-      height: calc(100vh - (100px + 26px));
-      display: block;
+            height: -moz-calc(100vh - 200px);
+            height: -webkit-calc(100vh -  200px);
+            height: calc(100vh - 200px);
+            display: block;
       }
 
       .drop-down {
@@ -57,7 +89,7 @@ section {
       }
       
       .google-column {
-            padding-top: 15vh;
+            padding-top: 5vh;
       }
 
       .contacts {
