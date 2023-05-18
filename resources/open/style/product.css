@@ -2,7 +2,6 @@
       .productsSection {
             display: flex;
             justify-content: center;
-            align-items: center;
       }
 
       .productsSection>.container {
@@ -104,7 +103,6 @@
   }
 
   .hero-text>.container {
-      padding: 80px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -112,12 +110,16 @@
   }
 
   .hero-text>.container>h1 {
-      font-size: 64px;
-  }
+    font-size: 64px;
+    width: 100%;
+    text-align: center;
+}
 
-  .hero-text>.container>h3 {
-      font-weight: 400;
-  }
+.hero-text>.container>h3 {
+    font-weight: 400;
+    width: 100%;
+    text-align: center;
+}
 
 
     @media screen and (max-width: 800px) {
@@ -127,6 +129,10 @@
     }
 
     @media screen and (max-width: 600px) {
+      .productsSection {
+        min-height: 5300px;
+  }
+
       .container {
         height: -moz-calc(100vh - 200px);
         height: -webkit-calc(100vh -  200px);

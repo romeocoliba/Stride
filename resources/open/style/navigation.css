@@ -167,6 +167,15 @@ footer {
 }
 
 @media screen and (max-width: 600px) {
+
+    .drop-down {
+        height: auto;
+  }
+
+  .drop-down-links {
+        padding-bottom: 15px;
+  }
+
     .burger-menu {
         display: flex;
     }

@@ -21,7 +21,7 @@ var endIndex = startIndex + itemsPerPage;
     var productCard = document.createElement("div");
     productCard.className = "product-card";
     productCard.innerHTML = `
-      <img src="${product.image}" alt="${product.name}" />
+      <a href=""><img src="${product.image}" alt="${product.name}" /></a>
       <h2>${product.name}</h2>
       <div id="stars-container${i}"></div>
       <p>€${product.price}</p>
@@ -57,10 +57,9 @@ function stars() {
   }
 }
 
-// Function to render pagination
 function renderPagination() {
   var pagination = document.getElementById("pagination");
-  pagination.innerHTML = ""; // Clear previous pagination
+  pagination.innerHTML = ""; //important
 
   for (var i = 1; i <= totalPages; i++) {
     var pageLink = document.createElement("a");

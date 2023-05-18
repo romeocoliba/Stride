@@ -56,7 +56,6 @@ section {
   }
 
   .hero-text>.container {
-      padding: 80px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -64,12 +63,16 @@ section {
   }
 
   .hero-text>.container>h1 {
-      font-size: 64px;
-  }
+    font-size: 64px;
+    width: 100%;
+    text-align: center;
+}
 
-  .hero-text>.container>h3 {
-      font-weight: 400;
-  }
+.hero-text>.container>h3 {
+    font-weight: 400;
+    width: 100%;
+    text-align: center;
+}
 
   
   @media screen and (max-width: 600px) {
@@ -78,14 +81,6 @@ section {
             height: -webkit-calc(100vh -  200px);
             height: calc(100vh - 200px);
             display: block;
-      }
-
-      .drop-down {
-            height: auto;
-      }
-
-      .drop-down-links {
-            padding-bottom: 15px;
       }
       
       .google-column {
