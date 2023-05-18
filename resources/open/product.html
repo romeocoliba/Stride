@@ -56,38 +56,170 @@
             </ul>
     </div>
 
-    
-    <section class="hero-text">
-
-        <div class="container">
-            <h1>Products</h1>
-            <h3>Choose what your heart desires!</h3>
-
-        </div>
-        
-    </section>
-<!-- 
-    <section class="sortings">
-
-        <div class="container">
-            <select name="gender" id="gender">
-                <option value="none">-</option>
-                <option value="woman">Woman</option>
-                <option value="man">Man</option>
-            </select>
-        </div>
-
-    </section> -->
-
-
-    <section class="productsSection">
-        <div class="container">
-            <div id="product-list"></div>
-            <div id="pagination"></div>
-        </div>
+    <section class="product">
+      <div class="container" id="placeholder">
+            
+      </div>
     </section>
 
+    <script>
+      var item = JSON.parse(window.localStorage.getItem("dynamicProduct"));
 
+      let placeholder = document.getElementById("placeholder");
+
+      placeholder.innerHTML = `<div class="left">
+                  <img src="${item.image}" alt="${item.image}">
+            </div>
+            <div class="right">
+                  <h1>${item.name}</h1>
+                  <p>${item.description}</p>
+                  <div class="container">
+                        <div class="total">
+                              <p>Total:</p>
+                              <p>€${item.price}</p>
+                        </div>
+                        <div class="buttonContainer">
+                              <div class="button">Add to cart</div>
+                        </div>
+                  </div>
+            </div>`;
+    </script>
+
+    <style>
+      .product {
+            padding-top: 80px;
+            height: -moz-calc(100vh - 200px - 80px);
+            height: -webkit-calc(100vh -  200px - 80px);
+            height: calc(100vh - 200px - 80px);
+            display: flex;
+            justify-content: center;
+      }
+      .product>.container {
+            width: 80%;
+            display: flex;
+      }
+
+      .container>.left {
+            width: 50%;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+      }
+
+      .container>.left>img {
+            width: 40vw;
+            height: 50vh;
+            object-fit: cover;
+      }
+
+      .container>.right {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+      }
+
+      .container>.right>h1 {
+            padding: 10px;
+            font-size: 46px;
+      }
+
+      .container>.right>p {
+            padding: 10px;
+            width: 30vw;
+            font-size: 20px;
+      }
+
+      .container>.right>.container {
+            display: flex;
+            padding: 10px;
+            padding-top: 10vh;
+      }
+
+      .container>.right>.container>.total {
+            padding-right: 5vw;
+      }
+
+      .container>.right>.container>.total>p {
+            font-size: 20px;
+      }
+
+      .container>.right>.container>.total>p:first-child {
+            font-size: 24px;
+            font-weight: 600;
+      }
+
+      .container>.right>.container>.buttonContainer>.button {
+      background-color: #FF5C00;
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 15px;
+      margin-top: 10px;
+      font-family: ndot32;
+      font-size: 18px;
+      letter-spacing: 1.2px;
+      cursor: pointer;
+      }
+
+      @media screen and (max-width: 600px) {
+
+      .product {
+            padding-top: 120px;
+            height: 800px;
+      }
+      
+      .product>.container {
+            flex-direction: column;
+      }
+
+      .container>.left {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+      }
+
+      .container>.left>img {
+            width: 80vw;
+            height: 50vh;
+            object-fit: cover;
+      }
+
+      .container>.right {
+            width: 90%;
+      }
+
+      .container>.right>h1 {
+            padding: 10px;
+            font-size: 32px;
+      }
+
+      .container>.right>p {
+            padding: 10px;
+            font-size: 18px;
+            width: 60vw;
+      }
+
+      .container>.right>.container {
+            display: flex;
+            height: 39px;
+            justify-content: space-between;
+            padding: 10px;
+            padding-top: 4vh;
+      }
+
+      .container>.right>.container>.buttonContainer>.button {
+      padding: 10px;
+      font-family: ndot32;
+      font-size: 16px;
+      }
+      }     
+
+
+    </style>
 
 
     <footer>
@@ -129,8 +261,6 @@
     </footer>
 
     <script src="../../resources/js/responive.js"></script>
-    <script src="../../resources/js/database/products.js"></script>
-    <script src="../../resources/js/productsRender.js"></script>
     
     
 </body>

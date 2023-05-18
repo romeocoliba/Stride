@@ -21,7 +21,7 @@ var endIndex = startIndex + itemsPerPage;
     var productCard = document.createElement("div");
     productCard.className = "product-card";
     productCard.innerHTML = `
-      <a href=""><img src="${product.image}" alt="${product.name}" /></a>
+      <a onclick="dynamicPage(${product.id})" href="product.html"><img src="${product.image}" alt="${product.name}" /></a>
       <h2>${product.name}</h2>
       <div id="stars-container${i}"></div>
       <p>€${product.price}</p>
@@ -84,27 +84,30 @@ function initializePage() {
   stars();
 }
 
+function dynamicPage(productId) {
+  var product = products.find(function(p) {
+    return p.id === productId;
+  });
+
+  localStorage.setItem("dynamicProduct", JSON.stringify(product));
+}
 
 
-// Function to handle Buy Now button click
 function buyNow(productId) {
   var product = products.find(function(p) {
     return p.id === productId;
   });
 
-  // Store product information in localStorage
   localStorage.setItem("buyNowProduct", JSON.stringify(product));
 
   alert("Product added to Buy Now!");
 }
 
-// Function to handle Add to Cart button click
 function addToCart(productId) {
   var product = products.find(function(p) {
     return p.id === productId;
   });
 
-  // Store product information in localStorage
   localStorage.setItem("cartProduct", JSON.stringify(product));
 
   alert("Product added to Cart!");
