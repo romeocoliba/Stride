@@ -8,6 +8,7 @@
     <link rel="icon" type="image/x-icon" href="../../style/img/favicon.svg">
     <link rel="stylesheet" href="style/navigation.css">
     <link rel="stylesheet" href="style/loader.css">
+    <link rel="stylesheet" href="style/product.css">
     <title>Stride</title>
 </head>
 <body>
@@ -55,7 +56,36 @@
             </ul>
     </div>
 
-    <section class="ghost"></section>
+    
+    <section class="hero-text">
+
+        <div class="container">
+            <h1>Products</h1>
+            <h3>Choose what your heart desires!</h3>
+
+        </div>
+        
+    </section>
+<!-- 
+    <section class="sortings">
+
+        <div class="container">
+            <select name="gender" id="gender">
+                <option value="none">-</option>
+                <option value="woman">Woman</option>
+                <option value="man">Man</option>
+            </select>
+        </div>
+
+    </section> -->
+
+
+    <section class="productsSection">
+        <div class="container">
+            <div id="product-list"></div>
+            <div id="pagination"></div>
+        </div>
+    </section>
 
 
 
@@ -99,5 +129,9 @@
     </footer>
 
     <script src="../../resources/js/responive.js"></script>
+    <script src="../../resources/js/database/products.js"></script>
+    <script src="../../resources/js/productsRender.js"></script>
+    
+    
 </body>
 </html>
