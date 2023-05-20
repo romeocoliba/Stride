@@ -104,14 +104,28 @@ function buyNow(productId) {
 }
 
 function addToCart(productId) {
-  var product = products.find(function(p) {
-    return p.id === productId;
-  });
 
-  localStorage.setItem("cartProduct", JSON.stringify(product));
+  if (localStorage.getItem("cart")) {
+
+    var product = products.find(function(p) {
+      return p.id === productId;
+    });
+
+    let old = JSON.parse(localStorage.getItem("cart"));
+
+    old.push(product);
+
+    localStorage.setItem("cart", JSON.stringify(old));
+    
+  } else {
+    var product = [products.find(function(p) {
+      return p.id === productId;
+    })];
+    
+  localStorage.setItem("cart", JSON.stringify(product));
+  }
 
   alert("Product added to Cart!");
 }
 
-// Initial rendering
 window.onload = initializePage;
