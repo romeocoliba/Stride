@@ -55,8 +55,220 @@
             </ul>
     </div>
 
-    <section class="ghost"></section>
+    <section class="hero-text">
 
+        <div class="container">
+            <h1>Cart</h1>
+            <h3>Buy it!</h3>
+
+        </div>
+        
+    </section>
+
+    <section class="cart" id="cart">
+
+    </section>
+
+    <section class="total">
+        <div class="container">
+            <div class="total" id="total"> Total: €</div>
+            <button>BUY</button>
+        </div>
+    </section>
+    
+
+    <script>
+        var storage = JSON.parse(window.localStorage.getItem("cart"));
+
+        for (let index = 0; index < storage.length; index++) {
+        let container = document.createElement("div");
+        container.classList.add("container");
+
+        let content = `<div class="inter">
+        <div class="left">
+        <img class="cartImage" src="${storage[index].image}" alt="${storage[index].image}">
+        <div class="name">${storage[index].name}</div>
+    </div>
+    <div class="right">
+        <div class="price">€${storage[index].price}</div>
+        <div class="qty"><input type="number" class="input" id="qty${storage[index].id}" value="1" onclick="update()"></div>
+        <div class="remove" id="remove" onclick="removeFromCart(this)""><i class="fa-solid fa-trash fa-lg" style="color: #FF5C00;"></i></div>
+    </div>
+    </div>`
+
+        let cart = document.getElementById("cart");
+
+        container.innerHTML = content;
+
+        cart.appendChild(container);}
+
+
+        function update() {
+            var inputs = document.querySelectorAll('input[type="number"]');
+             inputValues = [];
+
+         inputs.forEach(function(input) {
+            inputValues.push(input.value);
+            });
+
+            total = 0;
+
+            for (let index = 0; index < storage.length; index++) {
+                total += storage[index].price * inputValues[index];
+            }
+
+            total = Math.round(total);
+
+            let totalHtml = document.getElementById("total");
+
+            totalHtml.innerHTML = "Total: €"
+
+            totalHtml.innerHTML+=total;
+            
+        }
+
+        function removeFromCart(element) {
+  // Get the index of the item to remove from the ID of the clicked element
+  const index = element.id.replace("remove", "");
+
+  // Retrieve the cart array from localStorage
+  const cart = JSON.parse(localStorage.getItem("cart"));
+
+  // Remove the item from the cart array
+  cart.splice(index, 1);
+
+  // Update the cart array in localStorage
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  // Remove the corresponding HTML element from the DOM
+  element.closest(".inter").remove();
+}
+
+        update();
+
+        // function delete(element) {
+            
+        // }
+
+    </script>
+
+
+    <style>
+        .total {
+            background-color: #FF5C00;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+        }
+
+        .total .container {
+            width: 80%;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+        }
+
+        .total .container div {
+            color: #ECF6FF;
+            font-size: 22px;
+        }
+
+        .total .container button {
+            padding: 15px;
+            padding-left: 40px;
+            padding-right: 40px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 25px;
+            border: 0;
+        }
+
+        .cart .container {
+            background-color: #3F3F3F;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 160px;
+            filter:drop-shadow(0px 4px 4px #2d2d2d);
+        }
+
+        .name {
+            font-size: 24px;
+            padding-left: 2vw;
+        }
+
+        .input {
+            width: 30px;
+            padding: 10px;
+            border-radius: 3px;
+        }
+
+        .inter .right div {
+            padding-left: 10px;
+        }
+
+        .remove {
+            cursor: pointer;
+        }
+
+        .inter {
+            width: 80%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cartImage {
+            height: 150px;
+            width: 150px;
+            object-fit: cover;
+        }
+
+        .inter .left {
+            display: flex;
+            align-items: center;
+            color: #ECF6FF;
+        }
+
+        .inter .right {
+            display: flex;
+            align-items: center;
+            color: #ECF6FF;
+        }
+
+
+
+        
+  .hero-text {
+      background-color: #ECF6FF;
+      padding-top: 80px;
+      height: 35vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .hero-text>.container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .hero-text>.container>h1 {
+    font-size: 64px;
+    width: 100%;
+    text-align: center;
+}
+
+.hero-text>.container>h3 {
+    font-weight: 400;
+    width: 100%;
+    text-align: center;
+}
+    </style>
 
 
 

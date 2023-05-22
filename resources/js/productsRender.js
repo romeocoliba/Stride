@@ -98,9 +98,10 @@ function buyNow(productId) {
     return p.id === productId;
   });
 
-  localStorage.setItem("buyNowProduct", JSON.stringify(product));
+  price = product.price
 
-  alert("Product added to Buy Now!");
+  localStorage.setItem("buy", JSON.stringify(price));
+  window.location.href = 'payment.html';
 }
 
 function addToCart(productId) {
