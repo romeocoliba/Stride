@@ -67,7 +67,7 @@
     }
 
     .product-card button:hover {
-      background-color: #0056b3;
+      background-color: #b64402;
     }
 
     #pagination {
@@ -79,8 +79,8 @@
     #pagination a {
       display: inline-block;
       margin: 0 5px;
-      padding: 5px 10px;
-      font-size: 14px;
+      padding: 5px 10px 10px 10px;
+      font-size: 16px;
       color: #FF5C00;
       text-decoration: none;
       border-radius: 5px;
@@ -89,6 +89,12 @@
 
     #pagination a:hover {
       background-color: #f2f2f2;
+    }
+    
+    #pagination .active {
+      background-color: #FF5C00;
+      color: #fff;
+      font-weight: bold;
     }
 
     .hero-text {
@@ -120,6 +126,40 @@
     text-align: center;
 }
 
+  .cart {
+    background-color: #FF5C00;
+    position: fixed;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100px;
+    border-radius: 90px;
+    right: 10px;
+    bottom: 20px;
+  }
+
+  .qty {
+    position: absolute;
+    background-color: #ECF6FF;
+    border-radius: 90px;
+    height: 20px;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+    border: 1px solid #FF5C00;
+    top: 25px;
+    right: 25px;
+  }
+
+  .activePagination {
+    font-weight: 700;
+    font-size: 20px;
+  }
+
 
     @media screen and (max-width: 800px) {
       #product-list {
@@ -129,7 +169,7 @@
 
     @media screen and (max-width: 600px) {
       .productsSection {
-        min-height: 5300px;
+        min-height: 5100px;
   }
 
       .container {

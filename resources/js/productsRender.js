@@ -1,15 +1,14 @@
 
 
-var itemsPerPage = 12; // Number of items to display per page
-var currentPage = 1; // Current page
-var totalPages = Math.ceil(products.length / itemsPerPage); // Total number of pages
+var itemsPerPage = 12; 
+var currentPage = 1; 
+var totalPages = Math.ceil(products.length / itemsPerPage);
 
 
 
-// Function to render products
 function renderProducts() {
   var productList = document.getElementById("product-list");
-  productList.innerHTML = ""; // Clear previous products
+  productList.innerHTML = ""; 
   var startIndex = (currentPage - 1) * itemsPerPage;
 var endIndex = startIndex + itemsPerPage;
 
@@ -57,31 +56,51 @@ function stars() {
   }
 }
 
+// function renderPagination() {
+//   var pagination = document.getElementById("pagination");
+//   pagination.innerHTML = ""; 
+
+//   for (var i = 1; i <= totalPages; i++) {
+//     var pageLink = document.createElement("a");
+//     pageLink.href = "#";
+//     pageLink.innerText = i;
+//     pageLink.onclick = function(page) {
+//       return function() {
+//         currentPage = page;
+//         renderProducts();
+//         renderPagination();
+//         stars();
+//       };
+//     }(i);
+
+//     pagination.appendChild(pageLink);
+//   }
+// }
+
 function renderPagination() {
-  var pagination = document.getElementById("pagination");
-  pagination.innerHTML = ""; //important
+  var paginationContainer = document.getElementById("pagination");
+  paginationContainer.innerHTML = "";
 
   for (var i = 1; i <= totalPages; i++) {
     var pageLink = document.createElement("a");
+    pageLink.textContent = i;
     pageLink.href = "#";
-    pageLink.innerText = i;
-    pageLink.onclick = function(page) {
-      return function() {
-        currentPage = page;
-        renderProducts();
-        renderPagination();
-        stars();
-      };
-    }(i);
+    pageLink.addEventListener("click", goToPage.bind(null, i));
 
-    pagination.appendChild(pageLink);
+    if (i === currentPage) {
+      pageLink.classList.add("active");
+    }
+
+    paginationContainer.appendChild(pageLink);
   }
 }
 
-function initializePage() {
-  renderProducts();
-  renderPagination();
-  stars();
+function goToPage(page) {
+  if (page >= 1 && page <= totalPages) {
+    currentPage = page;
+    renderProducts();
+    renderPagination();
+  }
 }
 
 function dynamicPage(productId) {
@@ -127,6 +146,29 @@ function addToCart(productId) {
   }
 
   alert("Product added to Cart!");
+  cartNr();
+}
+
+function cartNr() {
+  let storage = JSON.parse(window.localStorage.getItem("cart"));
+
+  let nr = document.getElementById("qty");
+
+  nr.innerHTML = "";
+
+  nr.innerHTML = storage.length;
+
+}
+
+
+
+function initializePage() {
+  renderProducts();
+  renderPagination();
+  stars();
+  cartNr();
 }
 
 window.onload = initializePage;
+
+
