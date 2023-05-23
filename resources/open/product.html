@@ -82,10 +82,31 @@
                               <p>€${item.price}</p>
                         </div>
                         <div class="buttonContainer">
-                              <div class="button">Add to cart</div>
+                              <div class="button" onclick="addToCart()">Add to cart</div>
                         </div>
                   </div>
             </div>`;
+
+
+function addToCart() {
+
+if (localStorage.getItem("cart")) {
+      var product = JSON.parse(window.localStorage.getItem("dynamicProduct"));
+
+  let old = JSON.parse(localStorage.getItem("cart"));
+
+  old.push(product);
+
+  localStorage.setItem("cart", JSON.stringify(old));
+  
+} else {
+  
+localStorage.setItem("cart", JSON.stringify(product));
+}
+
+alert("Product added to Cart!");
+window.location = "cart.html";
+}
     </script>
 
     <style>
