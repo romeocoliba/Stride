@@ -3,11 +3,18 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/200fead19d.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/x-icon" href="../../style/img/favicon.svg">
+  <link rel="stylesheet" href="style/navigation.css">
+  <link rel="stylesheet" href="style/loader.css">
+  <title>Payment</title>
   <style>
     .container {
       display: flex;
       flex-wrap: wrap;
+      padding-top: 80px;
     }
 
     .half {
@@ -39,9 +46,14 @@
     }
 
     .submit-btn {
-      display: block;
-      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-self: center;
+      width: 50%;
+      margin: 0 auto;
       padding: 10px;
+      margin-top: 12px;
+      margin-bottom: 30px;
       border: none;
       border-radius: 3px;
       background-color: #FF5C00;
@@ -58,6 +70,50 @@
 </head>
 
 <body>
+
+  
+  <div class="loader">
+    <img src="../../style/img/light-logo.svg" alt="Stride LOGO" class="loaderLogo">
+</div>
+
+<nav>
+<div class="navContainer">
+    <div class="left">
+        <a href="../../index.html"><img src="../../style/img/light-logo.svg" alt="Stride LOGO" class="navLogo"></a>
+    </div>
+
+    <div class="center">
+        <ul class="pages">
+            <li><a href="products.html">Products</a></li>
+            <li><a href="aboutUs.html">About us</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contacts.html">Contacts</a></li>
+        </ul>
+    </div>
+
+    <div class="right">
+        <a href="../../RO/index.html"><h3>RO</h3></a>
+        <a href="login.html"><i class="fa-regular fa-user" style="color: #ECF6FF;"></i></a>
+    </div>
+    <div class="burger-menu" onclick="dropdown()">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+</div>
+</nav>
+
+<div class="drop-down inactive" id="drop-down">
+        <ul class="drop-down-links">
+            <li><a href="products.html">Products</a></li>
+            <li><a href="aboutUs.html">About us</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contacts.html">Contacts</a></li>
+            <li><a href="../../RO/index.html"><h3>RO</h3></a></li>
+            <li><a href="login.html"><i class="fa-regular fa-user" style="color: #ECF6FF;"></i></a></li>
+        </ul>
+</div>
+
   <div class="container">
     <div class="half">
       <div class="payment-form">
@@ -107,6 +163,46 @@
   <div class="price" id="price"></div>
 
   <button class="submit-btn" onclick="storePayment()">Submit</button>
+
+  <footer>
+    <div class="links">
+        <div class="left">
+            <div class="footerLogo">
+                <a href="../../index.html"><img src="../../style/img/light-logo.svg" alt="Stride LOGO" class="footerLogo"></a>
+            </div>
+            <div class="column">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="aboutUs.html">About us</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <ul>
+                    <li><a href="contacts.html">Contacts</a></li>
+                    <li><a href="">Terms and Conditions</a></li>
+                    <li><a href="">Private policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="right">
+            <div class="socials">
+                <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook fa-xl"style="color: #ECF6FF;"></i></a>
+                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram fa-xl"style="color: #ECF6FF;"></i></a>
+                <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube fa-xl"style="color: #ECF6FF;"></i></a>
+            </div>
+            <div class="copyright">
+                <p>@2023 - stride. All rights reserved</p>
+            </div>
+        </div>
+    </div>
+    <div class="label">
+        <p class="romeo">Created by Romeo.</p>
+    </div>
+</footer>
+
+<script src="../../resources/js/responive.js"></script>
 
   <script>
       let price = document.getElementById("price");
