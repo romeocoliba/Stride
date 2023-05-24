@@ -43,7 +43,7 @@ document.getElementById("loginButton").addEventListener("click", function(){
                         
                         if (localUsers[index].password === password) {
                             alert("LOGIN SUCCESFUL");
-                            window.location.href = 'product.html';
+                            window.location.href = 'products.html';
                             break;
                         }
             

@@ -44,7 +44,7 @@ document.getElementById("loginButton").addEventListener("click", function(){
                         if (localUsers[index].password === password) {
                             localStorage.setItem("auth",true);
                             alert("Autentificarea a fost cu succes!");
-                            window.location.href = 'produse.html';
+                            window.location.href = 'products.html';
                             break;
                         }
             
