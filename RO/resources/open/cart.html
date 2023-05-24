@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/200fead19d.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="../../style/img/favicon.svg">
+    <link rel="stylesheet" href="style/navigation.css">
+    <link rel="stylesheet" href="style/loader.css">
+    <title>Cart</title>
+</head>
+<body>
+    
+    
+    <div class="loader">
+        <img src="../../style/img/light-logo.svg" alt="Stride LOGO" class="loaderLogo">
+    </div>
+    
+    <nav>
+    <div class="navContainer">
+        <div class="left">
+            <a href="../../index.html"><img src="../../style/img/light-logo.svg" alt="Stride LOGO" class="navLogo"></a>
+        </div>
+
+        <div class="center">
+            <ul class="pages">
+                <li><a href="products.html">Produse</a></li>
+                <li><a href="aboutUs.html">Despre noi</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contacts.html">Contacte</a></li>
+            </ul>
+        </div>
+
+        <div class="right">
+            <a href="../../index.html"><h3>EN</h3></a>
+            <a href="login.html"><i class="fa-regular fa-user" style="color: #ECF6FF;"></i></a>
+        </div>
+        <div class="burger-menu" onclick="dropdown()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </div>
+    </nav>
+
+    <div class="drop-down inactive" id="drop-down">
+            <ul class="drop-down-links">
+                <li><a href="products.html">Produse</a></li>
+                <li><a href="aboutUs.html">Despre noi</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contacts.html">Contacte</a></li>
+                <li><a href="../../index.html"><h3>EN</h3></a></li>
+                <li><a href="login.html"><i class="fa-regular fa-user" style="color: #ECF6FF;"></i></a></li>
+            </ul>
+    </div>
+
+    <section class="hero-text">
+
+        <div class="container">
+            <h1>Cart</h1>
+            <h3>Cumpărăți-o!</h3>
+
+        </div>
+        
+    </section>
+
+    <section class="cart" id="cart">
+
+    </section>
+
+    <section class="total">
+        <div class="container">
+            <div class="total" id="total"> Total: €</div>
+            <button id="buyButton" onclick="redirect()">Cumpără</button>
+        </div>
+    </section>
+    
+
+    <script>
+
+        function generate() {
+            
+        let storage = JSON.parse(window.localStorage.getItem("cart"));
+        
+        document.getElementById("cart").innerHTML = "";
+
+            for (let index = 0; index < storage.length; index++) {
+        let container = document.createElement("div");
+        container.classList.add("container");
+
+
+        let content = `<div class="inter">
+        <div class="left">
+        <img class="cartImage" src="${storage[index].image}" alt="${storage[index].image}">
+        <div class="name">${storage[index].name}</div>
+    </div>
+    <div class="right">
+        <div class="price">€${storage[index].price}</div>
+        <div class="qty"><input type="number" class="input" id="qty${storage[index].id}" value="1" onclick="update()"></div>
+        <div class="remove" id="${index}" onclick="removeFromCart(this)""><i class="fa-solid fa-trash fa-lg" style="color: #FF5C00;"></i></div>
+    </div>
+    </div>`
+
+        let cart = document.getElementById("cart");
+
+        container.innerHTML = content;
+
+        cart.appendChild(container);}
+
+        }
+
+        generate();
+
+
+        function update() {
+            let storage = JSON.parse(window.localStorage.getItem("cart"));
+
+            var inputs = document.querySelectorAll('input[type="number"]');
+             inputValues = [];
+
+         inputs.forEach(function(input) {
+            inputValues.push(input.value);
+            });
+
+            total = 0;
+
+            for (let index = 0; index < storage.length; index++) {
+                total += storage[index].price * inputValues[index];
+            }
+
+            total = Math.round(total);
+
+            let totalHtml = document.getElementById("total");
+
+            totalHtml.innerHTML = "Total: €"
+
+            totalHtml.innerHTML+=total;
+
+            var exportTotal = total;
+            
+        }
+
+        function removeFromCart(element) {
+            const index = element.id;
+
+            const cart = JSON.parse(localStorage.getItem("cart"));
+
+            cart.splice(index, 1);
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            alert("Articolul a fost șters din coș cu succes!");
+
+            generate();
+            update();
+
+        }
+
+        function redirect() {
+
+            localStorage.setItem('buy', total);
+
+            window.location.href = 'payment.html';
+
+        }
+
+        update();
+
+    </script>
+
+
+    <style>
+        .total {
+            background-color: #FF5C00;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+        }
+
+        .total .container {
+            width: 80%;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+        }
+
+        .total .container div {
+            color: #ECF6FF;
+            font-size: 22px;
+        }
+
+        .total .container button {
+            padding: 15px;
+            padding-left: 40px;
+            padding-right: 40px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 25px;
+            border: 0;
+        }
+
+        .cart .container {
+            background-color: #3F3F3F;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 160px;
+            filter:drop-shadow(0px 4px 4px #2d2d2d);
+        }
+
+        .name {
+            font-size: 24px;
+            padding-left: 2vw;
+        }
+
+        .input {
+            width: 30px;
+            padding: 10px;
+            border-radius: 3px;
+        }
+
+        .inter .right div {
+            padding-left: 10px;
+        }
+
+        .remove {
+            cursor: pointer;
+        }
+
+        .inter {
+            width: 80%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cartImage {
+            height: 150px;
+            width: 150px;
+            object-fit: cover;
+        }
+
+        .inter .left {
+            display: flex;
+            align-items: center;
+            color: #ECF6FF;
+        }
+
+        .inter .right {
+            display: flex;
+            align-items: center;
+            color: #ECF6FF;
+        }
+
+
+
+        
+  .hero-text {
+      background-color: #ECF6FF;
+      padding-top: 80px;
+      height: 35vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .hero-text>.container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .hero-text>.container>h1 {
+    font-size: 64px;
+    width: 100%;
+    text-align: center;
+}
+
+.hero-text>.container>h3 {
+    font-weight: 400;
+    width: 100%;
+    text-align: center;
+}
+
+
+@media screen and (max-width: 600px) {
+    .cartImage {
+            height: 75px;
+            width: 75px;
+        }
+
+    .name {
+            font-size: 14px;
+        }
+
+    .input {
+            width: 20px;
+            padding: 10px;
+            border-radius: 3px;
+        }
+
+    .inter .right {
+            flex-direction: column;
+        }
+
+    .inter .right div {
+        padding: 5px;
+    }
+}
+    </style>
+
+
+
+    <footer>
+        <div class="links">
+            <div class="left">
+                <div class="footerLogo">
+                    <a href="../../index.html"><img src="../../style/img/light-logo.svg" alt="Stride LOGO" class="footerLogo"></a>
+                </div>
+                <div class="column">
+                    <ul>
+                        <li><a href="index.html">Acasă</a></li>
+                        <li><a href="products.html">Produse</a></li>
+                        <li><a href="aboutUs.html">Despre noi</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <ul>
+                        <li><a href="contacts.html">Contacte</a></li>
+                        <li><a href="">Termeni și condiții</a></li>
+                        <li><a href="">Politica privată</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="right">
+                <div class="socials">
+                    <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook fa-xl"style="color: #ECF6FF;"></i></a>
+                    <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram fa-xl"style="color: #ECF6FF;"></i></a>
+                    <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube fa-xl"style="color: #ECF6FF;"></i></a>
+                </div>
+                <div class="copyright">
+                    <p>@2023 - stride. Toate drepturile rezervate</p>
+                </div>
+            </div>
+        </div>
+        <div class="label">
+            <p class="romeo">Creat de Romeo.</p>
+        </div>
+    </footer>
+
+    <script src="../../resources/js/responive.js"></script>
+</body>
+</html>

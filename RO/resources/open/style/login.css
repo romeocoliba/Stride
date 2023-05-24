@@ -1,0 +1,87 @@
+ 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+   
+  .login {
+    padding-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: -moz-calc(100vh - (150px + 50px));
+    height: -webkit-calc(100vh - (150px + 50px));
+    height: calc(100vh - (150px + 50px));
+  }
+  
+  .loginContainer {
+    max-width: 320px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+
+    input[type="password"] {
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+      }
+  
+  .loginButton {
+    padding: 10px;
+    background-color: #3e3e3e;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .loginButton:hover {
+    background-color: #333333;
+  }
+
+  .registerButton {
+    padding: 10px;
+    background-color: #3e3e3e;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .registerButton:hover {
+    background-color: #333333;
+  }
+  
+
+  a>p {
+    padding-top: 10px;
+    color: #333333;
+  }
+
+  @media screen and (max-width: 600px) {
+    .login {
+    height: -moz-calc(100vh - (100px + 26px));
+    height: -webkit-calc(100vh - (100px + 26px));
+    height: calc(100vh - (100px + 26px));
+    }
+}

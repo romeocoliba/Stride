@@ -7,82 +7,12 @@
     <script src="https://kit.fontawesome.com/200fead19d.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/x-icon" href="../../style/img/favicon.svg">
     <link rel="stylesheet" href="style/navigation.css">
+    <link rel="stylesheet" href="style/login.css">
     <link rel="stylesheet" href="style/loader.css">
-    <title>Blog</title>
+    <title>Login</title>
 </head>
 <body>
 
-    <style>
-        .grid-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
-
-    .blog-card div p {
-        color: #000;
-    }
-
-    .blog-card {
-      color: #fff;
-      padding: 20px;
-      height: 30vh;
-      display: flex;
-        justify-content: center;
-        align-items: end;
-    }
-
-    .blog-card img {
-        position: absolute;
-      background-size: cover;
-      background-position: center;
-      filter: brightness(50%);
-      height: 30vh;
-      width: 300px;
-    }
-
-    .blog-title {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 10px;
-      color: #fff;
-      width: 80%;
-      text-align: center;
-      filter: brightness(100%);
-    }
-
-
-
-    .hero-text {
-      background-color: #ECF6FF;
-      padding-top: 80px;
-      height: 35vh;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-  }
-
-  .hero-text>.container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-  }
-
-  .hero-text>.container>h1 {
-    font-size: 64px;
-    width: 100%;
-    text-align: center;
-}
-
-.hero-text>.container>h3 {
-    font-weight: 400;
-    width: 100%;
-    text-align: center;
-}
-    </style>
     
     
     <div class="loader">
@@ -127,20 +57,23 @@
             </ul>
     </div>
 
-    
 
-    <section class="hero-text">
+    <section class="login">
+        <div class="loginContainer">
+            <form action="kill me">
 
-        <div class="container">
-            <h1>Blog</h1>
-            <h3>Sursa noastră supremă de inspirație, cunoaștere și stil!</h3>
+                <label for="login">Login</label>
+                <input type="text" id="login">
 
+                <label for="password">Parola</label>
+                <input type="password" id="password">
+
+                <div class="loginButton" id="loginButton">Login</div>
+
+            </form>
+            <a href="register.html"><p>Nu ești înregistrat?</p></a>
         </div>
-        
     </section>
-
-    <div class="grid-container">
-      </div>
 
 
 
@@ -183,45 +116,8 @@
         </div>
     </footer>
 
-    <script src="../../resources/js/responive.js"></script>
-    <script src="../../resources/js/database/blog.js"></script>
-    <script>
-
-        
-const container = document.querySelector('.grid-container');
-
-for (let index = 0; index < blogPosts.length; index++) {
-    const a = document.createElement('a');
-    a.href = "blogPage.html";
-    a.onclick = function() {
-    dynamicBlog(blogPosts[index].id);
-  };
-    const card = document.createElement('div');
-  card.classList.add('blog-card');
-
-  const image = document.createElement('img');
-  image.classList.add('blog-image');
-  image.src = blogPosts[index].image;
-
-  const title = document.createElement('h2');
-  title.classList.add('blog-title');
-  title.textContent = blogPosts[index].title;
-
-  card.appendChild(image);
-  card.appendChild(title);
-  a.appendChild(card);
-  container.appendChild(a);
-    
-}
-
-
-function dynamicBlog(blogId) {
-  var blog = blogPosts.find(function(p) {
-    return p.id === blogId;
-  });
-
-  localStorage.setItem("dynamicBlog", JSON.stringify(blog));
-}
-    </script>
+    <script src="/resources/js/responive.js"></script>
+    <script src="/resources/js/login.js"></script>
+    <script src="/resources/js/database/users.js"></script>
 </body>
 </html>

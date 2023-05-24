@@ -1,0 +1,99 @@
+* {
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+  }
+
+section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #3F3F3F;
+      filter:drop-shadow(0px 4px 4px #2d2d2d);
+}
+
+.container {
+      width: 80%;
+      height: -moz-calc(100vh - (150px + 50px));
+      height: -webkit-calc(100vh - (150px + 50px));
+      height: calc(100vh - (150px + 50px));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+
+.google-column {
+      display: flex;
+      align-items: center;
+  }
+
+  .google-maps {
+      height: 60vh;
+      width: 50vw;
+  }
+
+  .contacts {
+      width: 30vw;    
+      padding: 6vh;
+  }
+
+  .contacts>div>p {
+      color: #ECF6FF;
+  }
+
+  .contacts>div {
+      margin-top: 10px;
+  }
+
+  .hero-text {
+      background-color: #ECF6FF;
+      padding-top: 80px;
+      height: 35vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .hero-text>.container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .hero-text>.container>h1 {
+    font-size: 64px;
+    width: 100%;
+    text-align: center;
+}
+
+.hero-text>.container>h3 {
+    font-weight: 400;
+    width: 100%;
+    text-align: center;
+}
+
+  
+  @media screen and (max-width: 600px) {
+      .container {
+            height: -moz-calc(100vh - 200px);
+            height: -webkit-calc(100vh -  200px);
+            height: calc(100vh - 200px);
+            display: block;
+      }
+      
+      .google-column {
+            padding-top: 5vh;
+      }
+
+      .contacts {
+            width: 60vw;
+            padding-top: 3vh;
+        }
+
+      .google-maps {
+            height: 40vh;
+            width: 100vw;
+        }
+}

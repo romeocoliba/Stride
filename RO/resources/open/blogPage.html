@@ -13,55 +13,26 @@
 <body>
 
     <style>
-        .grid-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
 
-    .blog-card div p {
-        color: #000;
-    }
-
-    .blog-card {
-      color: #fff;
-      padding: 20px;
-      height: 30vh;
-      display: flex;
-        justify-content: center;
-        align-items: end;
-    }
-
-    .blog-card img {
-        position: absolute;
-      background-size: cover;
-      background-position: center;
-      filter: brightness(50%);
-      height: 30vh;
-      width: 300px;
-    }
-
-    .blog-title {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 10px;
-      color: #fff;
-      width: 80%;
-      text-align: center;
-      filter: brightness(100%);
-    }
-
-
-
+      
     .hero-text {
-      background-color: #ECF6FF;
       padding-top: 80px;
       height: 35vh;
       width: 100%;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
+  }
+
+  .hero-text>img {
+      position: absolute;
+      z-index: -1;
+      height: 35vh;
+      width: 100%;
+      object-fit: cover;
+      background-position: center;
+      filter: brightness(50%);
   }
 
   .hero-text>.container {
@@ -75,13 +46,27 @@
     font-size: 64px;
     width: 100%;
     text-align: center;
+    color: #ECF6FF;
 }
 
-.hero-text>.container>h3 {
-    font-weight: 400;
-    width: 100%;
-    text-align: center;
+
+.main>.container {
+      width: 80%;
+      padding-top: 5vh;
+      padding-bottom: 5vh;
 }
+
+.main {
+      display: flex;
+      justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+      
+  .hero-text>.container>h1 {
+    font-size: 48px;
+}
+  }
     </style>
     
     
@@ -118,7 +103,7 @@
 
     <div class="drop-down inactive" id="drop-down">
             <ul class="drop-down-links">
-                <li><a href="products.html">Produse</a></li>
+                <li><a href="products.html">Products</a></li>
                 <li><a href="aboutUs.html">Despre noi</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="contacts.html">Contacte</a></li>
@@ -131,18 +116,20 @@
 
     <section class="hero-text">
 
+      
         <div class="container">
-            <h1>Blog</h1>
-            <h3>Sursa noastră supremă de inspirație, cunoaștere și stil!</h3>
-
+            <h1 id="blogTitle"></h1>
         </div>
+        <img id="backgroundImage">
         
     </section>
 
-    <div class="grid-container">
+
+    <section class="main">
+      <div class="container">
+            <p id="blogContent"></p>
       </div>
-
-
+    </section>
 
 
     <footer>
@@ -184,44 +171,23 @@
     </footer>
 
     <script src="../../resources/js/responive.js"></script>
-    <script src="../../resources/js/database/blog.js"></script>
+
     <script>
 
+      let info = JSON.parse(window.localStorage.getItem("dynamicBlog"));
+
+      console.log(info);
+
+      let blogTitle = document.getElementById("blogTitle");
+      let blogContent = document.getElementById("blogContent");
+      let backgroundImage = document.getElementById("backgroundImage");
+
+
+      blogTitle.append(info.title);
+      blogContent.append(info.content);
+      backgroundImage.src = info.image;
+
         
-const container = document.querySelector('.grid-container');
-
-for (let index = 0; index < blogPosts.length; index++) {
-    const a = document.createElement('a');
-    a.href = "blogPage.html";
-    a.onclick = function() {
-    dynamicBlog(blogPosts[index].id);
-  };
-    const card = document.createElement('div');
-  card.classList.add('blog-card');
-
-  const image = document.createElement('img');
-  image.classList.add('blog-image');
-  image.src = blogPosts[index].image;
-
-  const title = document.createElement('h2');
-  title.classList.add('blog-title');
-  title.textContent = blogPosts[index].title;
-
-  card.appendChild(image);
-  card.appendChild(title);
-  a.appendChild(card);
-  container.appendChild(a);
-    
-}
-
-
-function dynamicBlog(blogId) {
-  var blog = blogPosts.find(function(p) {
-    return p.id === blogId;
-  });
-
-  localStorage.setItem("dynamicBlog", JSON.stringify(blog));
-}
     </script>
 </body>
 </html>

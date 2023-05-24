@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/200fead19d.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="../../style/img/favicon.svg">
+    <link rel="stylesheet" href="style/navigation.css">
+    <link rel="stylesheet" href="style/loader.css">
+    <link rel="stylesheet" href="style/products.css">
+    <script>
+      let storage = JSON.parse(window.localStorage.getItem("dynamicProduct"));
+      document.title = storage.name;
+    </script>
+</head>
+<body>
+    
+    
+    <div class="loader">
+        <img src="../../style/img/light-logo.svg" alt="Stride LOGO" class="loaderLogo">
+    </div>
+    
+    <nav>
+    <div class="navContainer">
+        <div class="left">
+            <a href="../../index.html"><img src="../../style/img/light-logo.svg" alt="Stride LOGO" class="navLogo"></a>
+        </div>
+
+        <div class="center">
+            <ul class="pages">
+                <li><a href="products.html">Produse</a></li>
+                <li><a href="aboutUs.html">Despre noi</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contacts.html">Contacte</a></li>
+            </ul>
+        </div>
+
+        <div class="right">
+            <a href="../../index.html"><h3>RO</h3></a>
+            <a href="login.html"><i class="fa-regular fa-user" style="color: #ECF6FF;"></i></a>
+        </div>
+        <div class="burger-menu" onclick="dropdown()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </div>
+    </nav>
+
+    <div class="drop-down inactive" id="drop-down">
+            <ul class="drop-down-links">
+                <li><a href="products.html">Produse</a></li>
+                <li><a href="aboutUs.html">Despre noi</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contacts.html">Contacte</a></li>
+                <li><a href="../../index.html"><h3>EN</h3></a></li>
+                <li><a href="login.html"><i class="fa-regular fa-user" style="color: #ECF6FF;"></i></a></li>
+            </ul>
+    </div>
+
+    <section class="product">
+      <div class="container" id="placeholder">
+            
+      </div>
+    </section>
+
+    <script>
+      var item = JSON.parse(window.localStorage.getItem("dynamicProduct"));
+
+      let placeholder = document.getElementById("placeholder");
+
+      placeholder.innerHTML = `<div class="left">
+                  <img src="${item.image}" alt="${item.image}">
+            </div>
+            <div class="right">
+                  <h1>${item.name}</h1>
+                  <p>${item.description}</p>
+                  <div class="container">
+                        <div class="total">
+                              <p>Total:</p>
+                              <p>€${item.price}</p>
+                        </div>
+                        <div class="buttonContainer">
+                              <div class="button" onclick="addToCart()">Adauga in cos</div>
+                        </div>
+                  </div>
+            </div>`;
+
+
+function addToCart() {
+
+if (localStorage.getItem("cart")) {
+      var product = JSON.parse(window.localStorage.getItem("dynamicProduct"));
+
+  let old = JSON.parse(localStorage.getItem("cart"));
+
+  old.push(product);
+
+  localStorage.setItem("cart", JSON.stringify(old));
+  
+} else {
+  
+localStorage.setItem("cart", JSON.stringify(product));
+}
+
+alert("Produs adăugat în coș!");
+window.location = "cart.html";
+}
+    </script>
+
+    <style>
+      .product {
+            padding-top: 80px;
+            height: -moz-calc(100vh - 200px - 80px);
+            height: -webkit-calc(100vh -  200px - 80px);
+            height: calc(100vh - 200px - 80px);
+            display: flex;
+            justify-content: center;
+      }
+      .product>.container {
+            width: 80%;
+            display: flex;
+      }
+
+      .container>.left {
+            width: 50%;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+      }
+
+      .container>.left>img {
+            width: 40vw;
+            height: 50vh;
+            object-fit: cover;
+      }
+
+      .container>.right {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+      }
+
+      .container>.right>h1 {
+            padding: 10px;
+            font-size: 46px;
+      }
+
+      .container>.right>p {
+            padding: 10px;
+            width: 30vw;
+            font-size: 20px;
+      }
+
+      .container>.right>.container {
+            display: flex;
+            padding: 10px;
+            padding-top: 10vh;
+      }
+
+      .container>.right>.container>.total {
+            padding-right: 5vw;
+      }
+
+      .container>.right>.container>.total>p {
+            font-size: 20px;
+      }
+
+      .container>.right>.container>.total>p:first-child {
+            font-size: 24px;
+            font-weight: 600;
+      }
+
+      .container>.right>.container>.buttonContainer>.button {
+      background-color: #FF5C00;
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 15px;
+      margin-top: 10px;
+      font-family: ndot32;
+      font-size: 18px;
+      letter-spacing: 1.2px;
+      cursor: pointer;
+      }
+
+      @media screen and (max-width: 600px) {
+
+      .product {
+            padding-top: 120px;
+            height: 800px;
+      }
+      
+      .product>.container {
+            flex-direction: column;
+      }
+
+      .container>.left {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+      }
+
+      .container>.left>img {
+            width: 80vw;
+            height: 50vh;
+            object-fit: cover;
+      }
+
+      .container>.right {
+            width: 90%;
+      }
+
+      .container>.right>h1 {
+            padding: 10px;
+            font-size: 32px;
+      }
+
+      .container>.right>p {
+            padding: 10px;
+            font-size: 18px;
+            width: 60vw;
+      }
+
+      .container>.right>.container {
+            display: flex;
+            height: 39px;
+            justify-content: space-between;
+            padding: 10px;
+            padding-top: 4vh;
+      }
+
+      .container>.right>.container>.buttonContainer>.button {
+      padding: 10px;
+      font-family: ndot32;
+      font-size: 16px;
+      }
+      }     
+
+
+    </style>
+
+
+    <footer>
+        <div class="links">
+            <div class="left">
+                <div class="footerLogo">
+                    <a href="../../index.html"><img src="../../style/img/light-logo.svg" alt="Stride LOGO" class="footerLogo"></a>
+                </div>
+                <div class="column">
+                    <ul>
+                        <li><a href="index.html">Acasă</a></li>
+                        <li><a href="products.html">Produse</a></li>
+                        <li><a href="aboutUs.html">Despre noi</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <ul>
+                        <li><a href="contacts.html">Contacte</a></li>
+                        <li><a href="">Termeni și condiții</a></li>
+                        <li><a href="">Politica privată</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="right">
+                <div class="socials">
+                    <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook fa-xl"style="color: #ECF6FF;"></i></a>
+                    <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram fa-xl"style="color: #ECF6FF;"></i></a>
+                    <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube fa-xl"style="color: #ECF6FF;"></i></a>
+                </div>
+                <div class="copyright">
+                    <p>@2023 - stride. Toate drepturile rezervate</p>
+                </div>
+            </div>
+        </div>
+        <div class="label">
+            <p class="romeo">Creat de Romeo.</p>
+        </div>
+    </footer>
+
+    <script src="../../resources/js/responive.js"></script>
+    
+    
+</body>
+</html>
