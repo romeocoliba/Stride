@@ -1,12 +1,12 @@
-/* Reset some default styles */
+ 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
-  
-  /* Center the login section vertically and horizontally */
+   
   .login {
+    padding-top: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,7 +15,6 @@
     height: calc(100vh - (150px + 50px));
   }
   
-  /* Style the login container */
   .loginContainer {
     max-width: 320px;
     padding: 20px;
@@ -24,18 +23,15 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
-  /* Style the login form */
   form {
     display: flex;
     flex-direction: column;
   }
   
-  /* Style the labels */
   label {
     margin-bottom: 5px;
   }
   
-  /* Style the input fields */
   input[type="text"] {
     padding: 10px;
     margin-bottom: 10px;
@@ -43,7 +39,6 @@
     border: 1px solid #ccc;
   }
 
-    /* Style the input fields */
     input[type="password"] {
         padding: 10px;
         margin-bottom: 10px;
@@ -51,7 +46,6 @@
         border: 1px solid #ccc;
       }
   
-  /* Style the login button */
   .loginButton {
     padding: 10px;
     background-color: #3e3e3e;

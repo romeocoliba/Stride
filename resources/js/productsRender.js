@@ -33,6 +33,66 @@ var endIndex = startIndex + itemsPerPage;
   }
 }
 
+function renderProductsFilterMen() {
+  var productList = document.getElementById("product-list");
+  productList.innerHTML = ""; 
+  var startIndex = (currentPage - 1) * itemsPerPage;
+var endIndex = startIndex + itemsPerPage;
+
+  for (var i = startIndex; i < endIndex; i++) {
+    if (i >= products.length) break;
+
+    var product = products[i];
+
+    if (product.category === "men") {
+      
+    var productCard = document.createElement("div");
+    productCard.className = "product-card";
+    productCard.innerHTML = `
+      <a onclick="dynamicPage(${product.id})" href="product.html"><img src="${product.image}" alt="${product.name}" /></a>
+      <h2>${product.name}</h2>
+      <div id="stars-container${i}"></div>
+      <p>€${product.price}</p>
+      <div class="buttons">
+      <button onclick="buyNow(${product.id})">Buy Now</button>
+      <button onclick="addToCart(${product.id})">Add to Cart</button>
+      </div>`;
+
+    productList.appendChild(productCard);
+  }
+}
+}
+
+function renderProductsFilterWomen() {
+  var productList = document.getElementById("product-list");
+  productList.innerHTML = ""; 
+  var startIndex = (currentPage - 1) * itemsPerPage;
+var endIndex = startIndex + itemsPerPage;
+
+  for (var i = startIndex; i < endIndex; i++) {
+    if (i >= products.length) break;
+
+    var product = products[i];
+
+    if (product.category === "women") {
+      
+    var productCard = document.createElement("div");
+    productCard.className = "product-card";
+    productCard.innerHTML = `
+      <a onclick="dynamicPage(${product.id})" href="product.html"><img src="${product.image}" alt="${product.name}" /></a>
+      <h2>${product.name}</h2>
+      <div id="stars-container${i}"></div>
+      <p>€${product.price}</p>
+      <div class="buttons">
+      <button onclick="buyNow(${product.id})">Buy Now</button>
+      <button onclick="addToCart(${product.id})">Add to Cart</button>
+      </div>`;
+
+    productList.appendChild(productCard);
+  }
+}
+}
+
 function stars() {
   var startIndex = (currentPage - 1) * itemsPerPage;
   var endIndex = startIndex + itemsPerPage;
@@ -56,26 +116,6 @@ function stars() {
   }
 }
 
-// function renderPagination() {
-//   var pagination = document.getElementById("pagination");
-//   pagination.innerHTML = ""; 
-
-//   for (var i = 1; i <= totalPages; i++) {
-//     var pageLink = document.createElement("a");
-//     pageLink.href = "#";
-//     pageLink.innerText = i;
-//     pageLink.onclick = function(page) {
-//       return function() {
-//         currentPage = page;
-//         renderProducts();
-//         renderPagination();
-//         stars();
-//       };
-//     }(i);
-
-//     pagination.appendChild(pageLink);
-//   }
-// }
 
 function renderPagination() {
   var paginationContainer = document.getElementById("pagination");
@@ -123,7 +163,12 @@ function buyNow(productId) {
   window.location.href = 'payment.html';
 }
 
+
 function addToCart(productId) {
+
+  var authValue = window.localStorage.getItem("auth");
+
+  if (authValue === "true") {
 
   if (localStorage.getItem("cart")) {
 
@@ -147,16 +192,25 @@ function addToCart(productId) {
 
   alert("Product added to Cart!");
   cartNr();
+    
+} else {
+  alert("You aren't authentificated!");
+  window.location.href = "login.html";
+}
 }
 
 function cartNr() {
-  let storage = JSON.parse(window.localStorage.getItem("cart"));
+  if (window.localStorage.getItem("cart")) {
 
-  let nr = document.getElementById("qty");
+    let storage = JSON.parse(window.localStorage.getItem("cart"));
 
-  nr.innerHTML = "";
+    var nr = document.getElementById("qty");
+  
+    nr.innerHTML = "";
+  
+    nr.innerHTML = storage.length;
+  }
 
-  nr.innerHTML = storage.length;
 
 }
 

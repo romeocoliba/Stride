@@ -14,8 +14,9 @@ document.getElementById("loginButton").addEventListener("click", function(){
         if (users[index].login === login) {
             
             if (users[index].password === password) {
+                localStorage.setItem("auth",true);
                 alert("LOGIN SUCCESFUL");
-                window.location.href = '../admin/index.html';
+                window.location.href = 'products.html';
                 break;
             }
 
